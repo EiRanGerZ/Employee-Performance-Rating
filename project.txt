@@ -1,0 +1,208 @@
+Ringkasan Project Tugas Besar Fuzzy Logic
+
+Judul Project
+
+Perbandingan Metode Fuzzy Mamdani dan Fuzzy Sugeno dalam Penilaian Performa Karyawan Menggunakan Dataset HR Analytics
+
+
+---
+
+Latar Belakang
+
+Dalam sebuah perusahaan, penilaian performa karyawan merupakan proses yang penting untuk mengetahui tingkat produktivitas, kedisiplinan, dan kualitas kerja setiap karyawan. Namun, penilaian performa sering kali melibatkan banyak faktor yang bersifat relatif dan tidak selalu dapat dinilai secara tegas. Misalnya, seorang karyawan dapat memiliki tingkat kehadiran yang tinggi tetapi mendapatkan umpan balik manajer yang sedang, atau memiliki jam kerja yang tinggi tetapi produktivitasnya tidak maksimal.
+
+Untuk menangani ketidakpastian tersebut, digunakan metode Fuzzy Logic yang mampu merepresentasikan penilaian manusia melalui variabel linguistik seperti rendah, sedang, dan tinggi. Pada project ini akan dilakukan implementasi dua metode fuzzy, yaitu Fuzzy Mamdani dan Fuzzy Sugeno, kemudian hasil keduanya akan dibandingkan untuk mengetahui karakteristik dan performa masing-masing metode dalam melakukan penilaian performa karyawan.
+
+
+---
+
+Dataset yang Digunakan
+
+Dataset yang digunakan adalah Employee Performance Dataset yang diperoleh dari Kaggle dan memenuhi ketentuan tugas karena memiliki lebih dari 5000 baris data serta terdiri dari beberapa variabel input dan satu variabel output.
+
+Dataset berisi berbagai informasi mengenai performa dan aktivitas kerja karyawan yang dapat digunakan untuk membangun sistem evaluasi berbasis fuzzy.
+
+
+---
+
+Variabel Input
+
+Project ini menggunakan 5 variabel input sebagai faktor penilaian performa karyawan, yaitu:
+
+1. KPI Score
+
+Menggambarkan tingkat pencapaian Key Performance Indicator (KPI) karyawan.
+
+2. Manager Feedback
+
+Nilai evaluasi yang diberikan oleh atasan terhadap kinerja karyawan.
+
+3. Training Hours
+
+Jumlah jam pelatihan yang telah diikuti karyawan sebagai indikator pengembangan kompetensi.
+
+4. Attendance (%)
+
+Persentase kehadiran karyawan selama periode penilaian.
+
+5. Work Hours Logged
+
+Jumlah jam kerja yang tercatat selama periode tertentu.
+
+
+---
+
+Variabel Output
+
+Performance Score
+
+Output yang dihasilkan oleh sistem adalah Performance Score, yaitu skor performa karyawan dalam rentang nilai tertentu yang menggambarkan kualitas kinerja secara keseluruhan.
+
+Nilai ini juga tersedia pada dataset sebagai ground truth sehingga dapat digunakan untuk mengevaluasi hasil prediksi dari sistem fuzzy.
+
+
+---
+
+Metode yang Digunakan
+
+Fuzzy Mamdani
+
+Metode Mamdani menggunakan aturan IF-THEN dengan output berupa himpunan fuzzy.
+
+Tahapan yang dilakukan:
+
+1. Fuzzifikasi
+
+
+2. Evaluasi Rule
+
+
+3. Inferensi Fuzzy
+
+
+4. Agregasi Rule
+
+
+5. Defuzzifikasi (Centroid)
+
+
+
+Contoh aturan:
+
+IF KPI Tinggi
+AND Attendance Tinggi
+AND Manager Feedback Baik
+THEN Performance Tinggi
+
+
+---
+
+Fuzzy Sugeno
+
+Metode Sugeno menggunakan aturan IF-THEN dengan output berupa nilai numerik (konstanta).
+
+Tahapan yang dilakukan:
+
+1. Fuzzifikasi
+
+
+2. Evaluasi Rule
+
+
+3. Inferensi Fuzzy
+
+
+4. Perhitungan Weighted Average
+
+
+
+Contoh aturan:
+
+IF KPI Tinggi
+AND Attendance Tinggi
+AND Manager Feedback Baik
+THEN Score = 90
+
+
+---
+
+Struktur Sistem
+
+Dataset Karyawan
+        │
+        ▼
+ Data Preprocessing
+        │
+        ▼
+   Fuzzifikasi
+        │
+        ▼
+     Rule Base
+        │
+        ▼
+ ┌───────────────┐
+ │   Mamdani     │
+ └───────────────┘
+        │
+        ▼
+Performance Score
+
+dan
+
+ ┌───────────────┐
+ │    Sugeno     │
+ └───────────────┘
+        │
+        ▼
+Performance Score
+
+
+---
+
+Tujuan Project
+
+Tujuan utama project ini adalah:
+
+1. Membangun sistem penilaian performa karyawan menggunakan metode Fuzzy Mamdani dan Fuzzy Sugeno.
+
+
+2. Mengimplementasikan seluruh proses fuzzy logic secara manual (from scratch) tanpa menggunakan library fuzzy sesuai ketentuan tugas.
+
+
+3. Memprediksi nilai Performance Score berdasarkan lima faktor utama yang memengaruhi performa karyawan.
+
+
+4. Membandingkan hasil yang diperoleh dari metode Mamdani dan Sugeno.
+
+
+5. Mengevaluasi performa kedua metode menggunakan metrik evaluasi yang sesuai, seperti:
+
+MAE (Mean Absolute Error)
+
+MSE (Mean Squared Error)
+
+RMSE (Root Mean Squared Error)
+
+
+
+6. Menganalisis kelebihan dan kekurangan masing-masing metode dalam menyelesaikan permasalahan penilaian performa karyawan.
+
+
+
+
+---
+
+Hasil yang Diharapkan
+
+Dari project ini diharapkan dapat diketahui:
+
+Seberapa baik metode Mamdani dan Sugeno dalam memprediksi Performance Score karyawan.
+
+Perbedaan karakteristik output yang dihasilkan oleh kedua metode.
+
+Metode mana yang memberikan hasil lebih mendekati nilai aktual pada dataset.
+
+Kelebihan dan kekurangan masing-masing metode ketika diterapkan pada sistem evaluasi performa karyawan.
+
+
+Dengan demikian, project ini tidak hanya mengimplementasikan konsep fuzzy logic, tetapi juga memberikan analisis komparatif antara dua metode fuzzy yang paling banyak digunakan dalam sistem pendukung keputusan dan evaluasi kinerja.
